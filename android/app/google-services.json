@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "504303969477",
+    "project_id": "smartgarden-28150",
+    "storage_bucket": "smartgarden-28150.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:504303969477:android:4a2852a6738b60495cfcac",
+        "android_client_info": {
+          "package_name": "com.example.smartgarden_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDo3dPZbCZ57jb49M3O-Qs9C-hRHAR9X4Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
