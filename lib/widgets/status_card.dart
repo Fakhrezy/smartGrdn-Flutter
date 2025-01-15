@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 
 class StatusCard extends StatelessWidget {
   final String title;
-  final String value;
+  // final String value;
   final IconData icon;
   final double width;
   final double height;
 
   const StatusCard({
     required this.title,
-    required this.value,
+    // required this.value,
     required this.icon,
     this.width = 150, // Lebar default diperbesar
     this.height = 150, // Tinggi default diperbesar
@@ -40,8 +40,8 @@ class StatusCard extends StatelessWidget {
         children: [
           Icon(icon, size: 40, color: Colors.teal[900]), // Ikon diperbesar
           SizedBox(height: 5),
-          Text(title, style: TextStyle(fontSize: 18, color: Colors.teal[900])), // Font diperbesar
-          Text(value, style: TextStyle(fontSize: 20, color: Colors.teal[900])), // Font diperbesar
+          Text(title, style: TextStyle(fontSize: 17, color: Colors.teal[900])), // Font diperbesar
+          // Text(value, style: TextStyle(fontSize: 20, color: Colors.teal[900])), // Font diperbesar
         ],
       ),
     );

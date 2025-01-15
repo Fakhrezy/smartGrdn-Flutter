@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'screens/main_screen.dart';
-// import 'screens/data_screen.dart';
+// import 'package:smartgarden_app/api_data_screen.dart';
+import 'package:smartgarden_app/screens/splash_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
+
+// import 'bottom_navigation.dart';
 
 
 void main() async{
@@ -17,13 +19,13 @@ class SmartGardenApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Smart Garden',
+      title: 'Smart Hydroponic',
       theme: ThemeData(
         primarySwatch: Colors.green,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MainScreen(),
-      // home: DataScreen(),
+      home: SplashScreen(),
+      // home: ApiDataScreen(),
       debugShowCheckedModeBanner: false,
     );
   }

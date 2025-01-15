@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'grafik_page.dart';
-import 'monitoring_page.dart';
-import 'controlling_page.dart';
-import '../models/chart_data.dart';  // Pastikan model ini diimpor
+import 'package:motion_tab_bar_v2/motion-tab-bar.dart';
+
+// Import halaman yang akan digunakan
+import 'home_page.dart';
+import 'stats_page.dart';
+import 'team_page.dart';
 
 class MainScreen extends StatefulWidget {
   @override
@@ -10,52 +12,35 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  int _currentIndex = 1;
+  int _selectedIndex = 0; // Menyimpan index tab yang terpilih
 
-  // Data sampel untuk GrafikPage (ganti dengan data asli dari backend Anda)
-  final List<ChartData> sampleData = [
-    ChartData(DateTime.now().subtract(Duration(hours: 1)), 25.0, 10.0),
-    ChartData(DateTime.now(), 28.0, 15.0),
-    // Tambahkan data palsu lainnya jika diperlukan
-  ];
-
-  // Membuat list halaman dengan mengirimkan data pada grafik page
+  // Daftar halaman yang akan ditampilkan sesuai tab
   final List<Widget> _pages = [
-    GrafikPage(sensorDataList: [
-      ChartData(DateTime.now().subtract(Duration(hours: 1)), 25.0, 10.0),
-      ChartData(DateTime.now(), 28.0, 15.0),
-      // Tambahkan data palsu lainnya jika diperlukan
-    ]), // GrafikPage dengan data
-    MonitoringPage(),
-    ControllingPage(),
+    HomePage(),  // Halaman Home
+    StatsPage(), // Halaman Stats
+    TeamPage(),  // Halaman Team
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _pages[_currentIndex], // Menampilkan halaman berdasarkan index
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _currentIndex,
-        onTap: (index) {
+      body: _pages[_selectedIndex], // Menampilkan halaman sesuai index
+      bottomNavigationBar: MotionTabBar(
+        initialSelectedTab: "Home",
+        labels: const ["Home", "Stats", "Team"],
+        icons: const [Icons.home, Icons.bar_chart, Icons.people],
+        tabSize: 50,
+        tabBarHeight: 60,
+        textStyle: const TextStyle(color: Colors.green, fontSize: 12),
+        tabIconColor: Colors.grey,
+        tabIconSize: 24,
+        tabIconSelectedSize: 28,
+        tabSelectedColor: Colors.green,
+        onTabItemSelected: (int value) {
           setState(() {
-            _currentIndex = index; // Menyimpan halaman yang dipilih
+            _selectedIndex = value; // Ubah index saat tab di-klik
           });
         },
-        selectedItemColor: Colors.green, // Mengatur warna ikon yang dipilih
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.show_chart),
-            label: 'Grafik',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.monitor),
-            label: 'Monitoring',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: 'Controlling',
-          ),
-        ],
       ),
     );
   }
